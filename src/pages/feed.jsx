@@ -47,24 +47,24 @@ function Feed(props) {
             ))}
           </div>
           <div className="order-first lg:order-none lg:col-span-3 ">
-            <div class="lg:m-3 shadow-md hover:shadow-lg hover:bg-gray-100 rounded-lg bg-white my-12 mx-8">
+            <div className="lg:m-3 shadow-md hover:shadow-lg hover:bg-gray-100 rounded-lg bg-white my-12 mx-8">
               <img
                 src="/img/Outer space-bro.svg"
                 alt=""
-                class="overflow-hidden object-cover h-24 md:h-32  w-full rounded-t"
+                className="overflow-hidden object-cover h-24 md:h-32  w-full rounded-t"
               />
 
-              <div class="p-4">
-                <h3 class="font-medium text-gray-600 text-lg my-2 uppercase">
+              <div className="p-4">
+                <h3 className="font-medium text-gray-600 text-lg my-2 uppercase">
                   Topics
                 </h3>
-                <div class="flex text-justify">
-                  <div class="w-full">
-                    <ul class="divide-y divide-gray-300">
+                <div className="flex text-justify">
+                  <div className="w-full">
+                    <ul className="divide-y divide-gray-300">
                       <li
-                        class="p-4 hover:bg-gray-50 cursor-pointer"
+                        className="p-4 hover:bg-gray-50 cursor-pointer"
                         onClick={() => {
-                          history.push("/food", {
+                          history.push("topic/food", {
                             error: "Unauthorized access / Expired",
                           });
                         }}
@@ -76,9 +76,9 @@ function Feed(props) {
                         Food
                       </li>
                       <li
-                        class="p-4 hover:bg-gray-50 cursor-pointer"
+                        className="p-4 hover:bg-gray-50 cursor-pointer"
                         onClick={() => {
-                          history.push("/cars", {
+                          history.push("topic/cars", {
                             error: "Unauthorized access / Expired",
                           });
                         }}
@@ -90,9 +90,9 @@ function Feed(props) {
                         Cars
                       </li>
                       <li
-                        class="p-4 hover:bg-gray-50 cursor-pointer"
+                        className="p-4 hover:bg-gray-50 cursor-pointer"
                         onClick={() => {
-                          history.push("/programing", {
+                          history.push("topic/programing", {
                             error: "Unauthorized access / Expired",
                           });
                         }}
@@ -104,7 +104,7 @@ function Feed(props) {
                         Programing
                       </li>
                       <li
-                        class="p-4 hover:bg-gray-50 cursor-pointer"
+                        className="p-4 hover:bg-gray-50 cursor-pointer"
                         onClick={() => {
                           history.push("/random", {
                             error: "Unauthorized access / Expired",

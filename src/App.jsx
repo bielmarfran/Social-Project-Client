@@ -17,7 +17,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" component={Feed} exact></Route>
-        <Route path="/:topic" component={FeedTopic} exact></Route>
+        <Route path="/topic/:topic" component={FeedTopic} exact></Route>
         <Route path="/profile/:username" component={Profile} />
       </Switch>
       <Route path="/login" component={Login} exact />
