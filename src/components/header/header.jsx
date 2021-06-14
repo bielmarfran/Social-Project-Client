@@ -4,7 +4,7 @@ import Modal from "../modal/Modal";
 
 export default function Header(props) {
   return (
-    <nav className="bg-white w-full flex relative justify-between items-center mx-auto py-6 px-8 h-20 sm:px-10 ">
+    <nav className="bg-white w-full flex relative justify-between items-center mx-auto py-6 px-8 h-16 sm:px-10 ">
       <div className="flex">
         <a className="_o6689fn" href="/">
           <div className="md:block">

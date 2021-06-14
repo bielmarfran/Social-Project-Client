@@ -4,10 +4,13 @@ import { Fragment, useRef, useEffect, useState } from "react";
 import { createPost } from "../../helpers/api/postOperations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { useMediaQuery } from "react-responsive";
+import { PlusIcon } from "@heroicons/react/solid";
 
 export default function Modal(props) {
   const [open, setOpen] = useState(false);
   const cancelButtonRef = useRef();
+  const isSm = useMediaQuery({ query: "(max-width: 640px)" });
 
   function closeModal() {
     setOpen(false);
@@ -47,13 +50,22 @@ export default function Modal(props) {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={openModal}
-        className="px-6 py-2 mx-2 text-md font-bold text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-      >
-        Create Post
-      </button>
+      {isSm ? (
+        <PlusIcon
+          onClick={openModal}
+          className="w-11 h-11 ml-2 hover:border 2px border-gray-700 rounded"
+          aria-hidden="true"
+        />
+      ) : (
+        <button
+          type="button"
+          onClick={openModal}
+          className="text-3xl sm:block px-2 py-1 md:px-6 md:py-2 mx-2 md:text-lg font-bold text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        >
+          Create Post
+        </button>
+      )}
+
       <Transition show={open} as={Fragment}>
         <Dialog
           as="div"

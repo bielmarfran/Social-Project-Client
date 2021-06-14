@@ -59,3 +59,14 @@ export async function getAllPosts(requestInfo) {
   const response = await getApi(request);
   return response;
 }
+
+export async function getAllPostsTopic(requestInfo) {
+  const request = {
+    url: `/posts/topic/${requestInfo}`,
+    mode: "cors",
+    credentials: "include",
+    headers: headers,
+  };
+  const response = await getApi(request);
+  return response;
+}

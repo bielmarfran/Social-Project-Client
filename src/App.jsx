@@ -6,6 +6,7 @@ import Login from "./pages/login.jsx";
 import Register from "./pages/register.jsx";
 import Profile from "./pages/profile.jsx";
 import Feed from "./pages/feed.jsx";
+import FeedTopic from "./pages/feedTopic";
 import Post from "./pages/post.jsx";
 import Teste from "./pages/teste.jsx";
 import ProtectedRoute from "./pages/protectedRoute";
@@ -16,6 +17,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" component={Feed} exact></Route>
+        <Route path="/:topic" component={FeedTopic} exact></Route>
         <Route path="/profile/:username" component={Profile} />
       </Switch>
       <Route path="/login" component={Login} exact />

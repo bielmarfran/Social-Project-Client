@@ -5,7 +5,7 @@ import { deletePost } from "../helpers/api/postOperations";
 
 export default function PostCard({ postData, getValue }) {
   let history = useHistory();
-  let show = false;
+  let show = true;
   const uuid = postData.uuid;
   const topic = postData.topic;
   const author = postData.user.username;
@@ -14,19 +14,26 @@ export default function PostCard({ postData, getValue }) {
   var time = getTime(postData.createdAt);
 
   return (
-    <div className="w-full sm:w-10/12 md:8/12 lg:w-7/12  mx-auto py-2 px-10">
+    <div className="w-full lg:w-10/12 2 ml-auto py-2 px-10">
       <div className="flex border border-grey-light-alt hover:border-grey rounded bg-white cursor-pointer hover:shadow-lg">
         <div className="w-11/12 pt-2 pl-5" onClick={handleClick}>
           <div className="flex items-center text-xs mb-2">
-            <a
-              href="#"
-              className="font-semibold no-underline hover:underline text-black flex items-center"
-            >
+            <a className="font-semibold no-underline hover:underline text-black flex items-center">
               <img
                 className="rounded-full border h-5 w-5"
                 src={`/img/${topic}.svg`}
               />
-              <span className="ml-2">{topic}</span>
+              <button
+                className="text-grey mx-1 no-underline hover:underline"
+                onClick={() => {
+                  show = false;
+                  history.push(`/${topic.toLowerCase()}`, {
+                    error: "Unauthorized access / Expired",
+                  });
+                }}
+              >
+                {topic}
+              </button>
             </a>
             <span className="text-grey-light mx-1 text-xxs">•</span>
             <span className="text-grey hidden  md:block">Posted by</span>
@@ -62,10 +69,10 @@ export default function PostCard({ postData, getValue }) {
     </div>
   );
   async function handleClick() {
-    if (show === false) {
+    if (show == true) {
       history.push("/post/" + uuid);
     }
-    show = false;
+    show = "post";
   }
   async function handleClickRemovePost() {
     const response = await deletePost(uuid);
@@ -92,7 +99,7 @@ export default function PostCard({ postData, getValue }) {
     );
   }
   async function showProfile() {
-    show = true;
+    show = false;
     history.push(`/profile/${author}`);
   }
 }
